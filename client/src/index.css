@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Syne:wght@400..800&display=swap');
+@import "tailwindcss";
+
+* {
+  font-family: "Syne", sans-serif;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 40px 40px;
+  }
+}
+
+.animate-gridMove {
+  animation: gridMove 8s linear infinite;
+}
