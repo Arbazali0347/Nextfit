@@ -9,10 +9,7 @@ It provides a smooth shopping experience for customers and a powerful admin dash
 
 ## 🚀 Live Demo
 
-- 🌐 Frontend: [Add Link]
-- ⚙️ Admin Panel: [Add Link]
-- 🔗 API: [Add Link]
-
+- 🌐 Frontend: [https://nextfit-seven.vercel.app/]
 ---
 
 ## ✨ Key Features
@@ -69,3 +66,25 @@ Nextfit/
 ├── admin/ # Admin dashboard
 ├── server/ # Node/Express backend
 └── README.md
+
+## 📦 Environment Variables
+- Make sure to configure:
+- MongoDB connection
+- Cloudinary credentials
+- Server port
+- 
+## 🎯 Future Improvements
+
+- Online payment integration
+- User authentication system
+- Order tracking page
+- Email notifications
+- Advanced analytics dashboard
+
+## 👨‍💻 Author
+
+Arbaz Ali (Black Aro)
+Full Stack MERN Developer
+
+💼 Open for freelance work
+📩 Available for collaboration
