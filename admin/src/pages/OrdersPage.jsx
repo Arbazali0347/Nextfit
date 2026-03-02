@@ -22,12 +22,12 @@ const tabs = ["All", "Pending", "Processing", "Shipped", "Delivered", "Cancelled
 
 const OrdersPage = () => {
   const [activeTab, setActiveTab] = useState("All");
-  const {isLoading, orders, setOrders} = useAdmin()
+  const {isLoading, orders, setOrders, baseURL} = useAdmin()
 
   // 3. Fixed Status Change: Instant UI Update + Enum Match
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      const { data } = await axios.put(`http://localhost:5000/api/order/${orderId}`, {
+      const { data } = await axios.put(`${baseURL}/order/${orderId}`, {
         orderStatus: newStatus
       });
 
@@ -53,7 +53,7 @@ const OrdersPage = () => {
   const handleDeleteOrder = async (orderId) => {
     if (!window.confirm("Are you sure you want to delete this order? This action cannot be undone.")) return;
     try {
-      const { data } = await axios.delete(`http://localhost:5000/api/order/${orderId}`);
+      const { data } = await axios.delete(`${baseURL}/order/${orderId}`);
       if (data.success) {
         setOrders(orders.filter(o => {
           const id = o._id?.$oid || o._id;

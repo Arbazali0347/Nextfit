@@ -8,14 +8,14 @@ export const AdminProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const baseURL = "http://localhost:5000/api/products";
+  const baseURL = import.meta.env.VITE_BACKEND_API;
 
   // Fetch Orders
   const fetchOrders = async () => {
     setIsLoading(true);
     try {
       // 🚀 Yahan apna real API call lagayein:
-      const { data } = await axios.get("http://localhost:5000/api/order");
+      const { data } = await axios.get(`${baseURL}/order`);
       if (data.success) {
         setOrders(data.orders);
       } else {
@@ -33,7 +33,7 @@ export const AdminProvider = ({ children }) => {
   // ✅ Get Products
   const getProducts = async () => {
     try {
-      const res = await axios.get(`${baseURL}/get-products`);
+      const res = await axios.get(`${baseURL}/products/get-products`);
       if (res.data.success) {
         setProducts(res.data.products);
       }
@@ -45,7 +45,7 @@ export const AdminProvider = ({ children }) => {
   // ✅ Delete Product
   const deleteProduct = async (id) => {
     try {
-      const res = await axios.post(`${baseURL}/delete-product`, { id });
+      const res = await axios.post(`${baseURL}/products/delete-product`, { id });
 
       if (res.data.success) {
         // UI se bhi remove karo

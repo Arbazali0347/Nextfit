@@ -72,7 +72,7 @@ const AddProduct = () => {
       formData.images.forEach((img) => data.append("images", img));
 
       const res = await axios.post(
-        `${baseURL}add-product`,
+        `${baseURL}/products/add-product`,
         data,
         {
           headers: { "Content-Type": "multipart/form-data" },

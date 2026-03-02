@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast"
 
 const ShopContext = React.createContext();
-export const baseURL = "http://localhost:5000/api/products";
+export const baseURL = import.meta.env.VITE_BACKEND_API;
 export const ShopContextProvider = ({ children }) => {
     // Products
     const [products, setProducts] = useState([]);
@@ -14,7 +14,7 @@ export const ShopContextProvider = ({ children }) => {
     // ✅ Get Products
     const getProducts = async () => {
         try {
-            const res = await axios.get(`${baseURL}/get-products`);
+            const res = await axios.get(`${baseURL}/products/get-products`);
             if (res.data.success) {
                 setProducts(res.data.products);
             }
@@ -33,7 +33,7 @@ export const ShopContextProvider = ({ children }) => {
             };
 
             const { data } = await axios.post(
-                "http://localhost:5000/api/order",
+                `${baseURL}/order`,
                 orderData
             );
 

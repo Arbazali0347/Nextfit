@@ -13,7 +13,7 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174"], // frontend URL (change in production)
+  origin: [process.env.CORS_URL_1, process.env.CORS_URL_2],
   credentials: true
 }));
 

@@ -20,7 +20,7 @@ const ProductPage = () => {
   const GetProductById = async (id) => {
     setIsLoading(true);
     try {
-      const res = await axios.get(`${baseURL}/${id}`);
+      const res = await axios.get(`${baseURL}/products/${id}`);
       if (res.data.success) {
         setProduct(res.data.product);
         

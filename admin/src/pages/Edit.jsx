@@ -29,7 +29,7 @@ const EditProductPage = () => {
     const fetchProduct = async () => {
       setIsLoading(true);
       try {
-        const res = await axios.get(`${baseURL}/${id}`);
+        const res = await axios.get(`${baseURL}/products/${id}`);
         const product = res.data.product;
         setFormData({
           title: product.title,
@@ -115,7 +115,7 @@ const EditProductPage = () => {
       selectedImages.forEach((img) => data.append("images", img));
 
       const res = await axios.put(
-        `${baseURL}/${id}`,
+        `${baseURL}/products/${id}`,
         data,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
