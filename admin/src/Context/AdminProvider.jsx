@@ -5,8 +5,30 @@ import toast from "react-hot-toast";
 const AdminContext = createContext();
 
 export const AdminProvider = ({ children }) => {
+  const [orders, setOrders] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const baseURL = "http://localhost:5000/api/products";
+
+  // Fetch Orders
+  const fetchOrders = async () => {
+    setIsLoading(true);
+    try {
+      // 🚀 Yahan apna real API call lagayein:
+      const { data } = await axios.get("http://localhost:5000/api/order");
+      if (data.success) {
+        setOrders(data.orders);
+      } else {
+        toast.error(data.message || "Failed to fetch orders");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to load orders");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   // ✅ Get Products
   const getProducts = async () => {
@@ -39,6 +61,7 @@ export const AdminProvider = ({ children }) => {
   // auto load
   useEffect(() => {
     getProducts();
+    fetchOrders();
   }, []);
 
   return (
@@ -47,6 +70,10 @@ export const AdminProvider = ({ children }) => {
         products,
         getProducts,
         deleteProduct,
+        baseURL,
+        orders,
+        isLoading,
+        setOrders,
       }}
     >
       {children}

@@ -5,6 +5,7 @@ import "dotenv/config";
 import morgan from "morgan";
 import ProductRoute from "./routes/productRoute.js";
 import connectCloudinary from "./configs/cloudinary.js";
+import OrderRouter from "./routes/orderRouter.js";
 
 
 // App Init
@@ -23,6 +24,7 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/api/products", ProductRoute);
+app.use("/api/order", OrderRouter);
 
 // Test Route
 app.get("/", (req, res) => {
