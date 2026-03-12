@@ -63,7 +63,7 @@ It provides a smooth shopping experience for customers and a powerful admin dash
 ## 📁 Project Structure
 Nextfit/
 ├── client/ # React frontend
-├── admin/ # Admin dashboard
+├── admin/  # Admin dashboard
 ├── server/ # Node/Express backend
 └── README.md
 
@@ -72,7 +72,7 @@ Nextfit/
 - MongoDB connection
 - Cloudinary credentials
 - Server port
-- 
+  
 ## 🎯 Future Improvements
 
 - Online payment integration
