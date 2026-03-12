@@ -1,4 +1,4 @@
-# 🖤 Nextfit — Modern MERN Clothing E-Commerce Platform
+# 🖤 Nextfit - Modern MERN Clothing E-Commerce Platform
 
 **Nextfit** is a modern **dark-themed full-stack e-commerce web application** built using the **MERN Stack (MongoDB, Express, React, Node.js)**.
 
