@@ -33,7 +33,7 @@ const DashboardLayout = ({ children }) => {
           {/* Logo Area */}
           <div className="h-16 flex items-center px-6 border-b border-white/5">
             <span className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent cursor-pointer" onClick={() => navigate('/')}>
-              Nextfit Admin
+              GARB Gallery
             </span>
           </div>
 
